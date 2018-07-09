@@ -22,4 +22,4 @@ install:
 script:
   - mkdir build
   - cd build
-  - cmake .. -DBUILD_WITH_SOURCES_DIR=../boost-1.58.0 && make all && make tests
+  - cmake .. -DBUILD_WITH_SOURCES_DIR=../boost-1.58.0 && make -j$(nproc) all && make -j$(nproc) tests
