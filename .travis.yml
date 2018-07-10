@@ -20,6 +20,7 @@ matrix:
                 - ubuntu-toolchain-r-test
                 
 before_install:
+    - sudo brew install cmake
     - $CXX --version
     - which $CXX
     - $CC --version
