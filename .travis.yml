@@ -1,4 +1,29 @@
 sudo: required
+
+matrix:
+    include:
+        - os: osx
+          compiler: clang
+
+        - os: linux
+          compiler: gcc
+          addons: &gcc
+            apt:
+              packages:
+                - util-linux
+                - g++-4.9
+              sources:
+                - ubuntu-toolchain-r-test
+                
+        - os: linux
+          compiler: clang
+            apt:
+              packages:
+                - util-linux
+                - clang-6.0
+              sources:
+                - ubuntu-toolchain-r-test
+                
 before_install:
   - sudo apt-get install -y zlib1g-dev libbz2-dev mpich
   - sudo apt-get install -y python3-dev python3-pip python3-tk python3-lxml python3-six 
@@ -9,12 +34,6 @@ before_install:
   
 # Enable C++ support
 language: cpp
-
-# Compiler selection
-compiler:
-  - gcc
-  - clang
-  
   
 install:
 
