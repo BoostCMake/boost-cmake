@@ -29,7 +29,8 @@ before_install:
 script:
     - mkdir build
     - cd build
-    - ls
+    - ls ${TRAVIS_BUILD_DIR}
+    - echo ${TRAVIS_BUILD_DIR}
     - ls ../boost
     - pwd
-    - /usr/local/bin/cmake .. -DBUILD_WITH_SOURCES_DIR=boost && make -j$(nproc) all && make -j$(nproc) tests
+    - /usr/local/bin/cmake .. -DBUILD_WITH_SOURCES_DIR=${TRAVIS_BUILD_DIR}/boost && make -j$(nproc) all && make -j$(nproc) tests
