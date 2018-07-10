@@ -20,16 +20,6 @@ matrix:
                 - ubuntu-toolchain-r-test
                 
 before_install:
-    - curl -O https://distfiles.macports.org/MacPorts/MacPorts-2.5.2.tar.bz2
-    - tar xf MacPorts-2.5.2.tar.bz2
-    - cd MacPorts-2.5.2/
-    - ./configure
-    - make
-    - sudo make install
-    - export PATH=/opt/local/bin:/opt/local/sbin:$PATH
-    - sudo port -v selfupdate
-    - yes | sudo port -v install git
-    - yes | sudo port -v install cmake
     - $CXX --version
     - which $CXX
     - $CC --version
