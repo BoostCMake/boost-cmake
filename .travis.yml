@@ -28,8 +28,8 @@ before_install:
     - sudo make install
     - export PATH=/opt/local/bin:/opt/local/sbin:$PATH
     - sudo port -v selfupdate
-    - sudo port -y install git
-    - sudo port -y install cmake
+    - sudo port install -y  git
+    - sudo port install -y cmake
     - $CXX --version
     - which $CXX
     - $CC --version
