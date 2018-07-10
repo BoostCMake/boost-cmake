@@ -29,11 +29,10 @@ before_install:
     - which $CC
     - which cmake
     - cmake --version
-    - /usr/local/bin/cmake --version
     - git clone --quiet --recurse-submodules https://github.com/boostorg/boost.git -b boost-1.58.0
 
 # Build steps
 script:
     - mkdir build
     - cd build
-    - /usr/local/bin/cmake .. -DBUILD_WITH_SOURCES_DIR=${TRAVIS_BUILD_DIR}/boost && make -j$(nproc) all && make -j$(nproc) tests
+    - cmake .. -DBUILD_WITH_SOURCES_DIR=${TRAVIS_BUILD_DIR}/boost && make -j$(nproc) all && make -j$(nproc) tests
