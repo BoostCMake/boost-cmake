@@ -26,6 +26,8 @@ before_install:
     - ./configure
     - make
     - sudo make install
+    - sudo export PATH=/opt/local/bin:/opt/local/sbin:$PATH
+    - sudo port -v selfupdate
     - sudo port install git
     - sudo port install cmake
     - $CXX --version
