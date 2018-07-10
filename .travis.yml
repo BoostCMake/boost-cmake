@@ -35,4 +35,4 @@ before_install:
 script:
     - mkdir build
     - cd build
-    - `pwd`/cmake-3.10.0-Darwin-x86_64/CMake.app/Contents/bin/cmake .. -DBUILD_WITH_SOURCES_DIR=${TRAVIS_BUILD_DIR}/boost && make -j$(nproc) all && make -j$(nproc) tests
+    - ../cmake-3.10.0-Darwin-x86_64/CMake.app/Contents/bin/cmake .. -DBUILD_WITH_SOURCES_DIR=${TRAVIS_BUILD_DIR}/boost && make -j$(nproc) all && make -j$(nproc) tests
