@@ -8,16 +8,6 @@ matrix:
         # OSX
         - os: osx
           compiler: clang
-
-        - os: linux
-          compiler: gcc
-          addons: &gcc
-            apt:
-              packages:
-                - util-linux
-                - g++-4.9
-              sources:
-                - ubuntu-toolchain-r-test
                 
 before_install:
     - wget https://cmake.org/files/v3.10/cmake-3.10.0-Darwin-x86_64.tar.gz
@@ -35,4 +25,4 @@ before_install:
 script:
     - mkdir build
     - cd build
-    - ../cmake-3.10.0-Darwin-x86_64/CMake.app/Contents/bin/cmake .. -DBUILD_WITH_SOURCES_DIR=${TRAVIS_BUILD_DIR}/boost && make -j$(nproc) all && make -j$(nproc) tests
+    - cmake .. -DBUILD_WITH_SOURCES_DIR=${TRAVIS_BUILD_DIR}/boost && make -j$(nproc) all && make -j$(nproc) tests
