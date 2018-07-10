@@ -29,4 +29,4 @@ before_install:
 script:
     - mkdir build
     - cd build
-    - /usr/local/bin/cmake .. -DBUILD_WITH_SOURCES_DIR=../boost-1.58.0 && make -j$(nproc) all && make -j$(nproc) tests
+    - /usr/local/bin/cmake .. -DBUILD_WITH_SOURCES_DIR=../boost && make -j$(nproc) all && make -j$(nproc) tests
