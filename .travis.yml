@@ -10,9 +10,11 @@ matrix:
           compiler: clang
                 
 before_install:
-    - wget https://cmake.org/files/v3.10/cmake-3.10.0-Darwin-x86_64.tar.gz
-    - tar xf cmake-3.10.0-Darwin-x86_64.tar.gz
-    - export PATH="`pwd`/cmake-3.10.0-Darwin-x86_64/CMake.app/Contents/bin:$PATH"
+    - if [ $TRAVIS_OS_NAME = osx ]; then 
+      wget https://cmake.org/files/v3.10/cmake-3.10.0-Darwin-x86_64.tar.gz;
+      tar xf cmake-3.10.0-Darwin-x86_64.tar.gz;
+      export PATH="`pwd`/cmake-3.10.0-Darwin-x86_64/CMake.app/Contents/bin:$PATH";
+    else echo 42; fi
     - $CXX --version
     - which $CXX
     - $CC --version
