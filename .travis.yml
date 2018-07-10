@@ -28,10 +28,8 @@ before_install:
     - sudo make install
     - export PATH=/opt/local/bin:/opt/local/sbin:$PATH
     - sudo port -v selfupdate
-    - yes | sudo port install -v python27
-    - yes | sudo port select --set python python27
-    - yes | sudo port install -v git
-    - yes | sudo port install -v cmake
+    - yes | sudo port -v install git
+    - yes | sudo port -v install cmake
     - $CXX --version
     - which $CXX
     - $CC --version
