@@ -3,29 +3,20 @@ dist: trusty
 language: cpp
 script: cmake
 
-matrix:
-    include:
-        - os: linux
-          addons:
-            apt:
-              sources:
-                - llvm-toolchain-trusty-4.0
-              packages:
-                - clang-4.0
-          env:
-            - MATRIX_EVAL="CC=clang-4.0 && CXX=clang++-4.0"
+compiler:
+  - clang
+  - gcc
                 
 before_install:
-  - eval "${MATRIX_EVAL}"
     - sudo apt-get install -y zlib1g-dev libbz2-dev mpich
     - sudo apt-get install -y python3-dev python3-pip python3-tk python3-lxml python3-six 
     - sudo apt-get install -y libssl-dev # OpenSSl
     - sudo apt-get install -y libicu-dev libc6-dev # ICU and Iconv
-  - sudo apt-get install -y bsdmainutils build-essential autotools-dev automake autoconf git 
-  - git clone --quiet --recurse-submodules https://github.com/boostorg/boost.git -b boost-1.58.0
+    - sudo apt-get install -y bsdmainutils build-essential autotools-dev automake autoconf git 
+    - git clone --quiet --recurse-submodules https://github.com/boostorg/boost.git -b boost-1.58.0
 
 # Build steps
 script:
-  - mkdir build
-  - cd build
-  - cmake .. -DBUILD_WITH_SOURCES_DIR=../boost-1.58.0 && make -j$(nproc) all && make -j$(nproc) tests
+    - mkdir build
+    - cd build
+    - cmake .. -DBUILD_WITH_SOURCES_DIR=../boost-1.58.0 && make -j$(nproc) all && make -j$(nproc) tests
