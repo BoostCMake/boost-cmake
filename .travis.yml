@@ -5,6 +5,14 @@ script: cmake
 
 matrix:
     include:
+      - os: linux
+        addons:
+          apt:
+            sources:
+              - llvm-toolchain-trusty-5.0
+          packages:
+              - clang-5.0
+              - cmake-3.10.0
         # OSX
         - os: osx
           compiler: 
