@@ -40,5 +40,5 @@ before_script:
 script:
     - mkdir build
     - cd build
-    - cmake .. -DBUILD_WITH_SOURCES_DIR=${TRAVIS_BUILD_DIR}/boost && make -j$(nproc) all && make -j$(nproc) tests
+    - cmake .. -DBUILD_WITH_SOURCES_DIR=${TRAVIS_BUILD_DIR}/boost && make -j$(nproc) all && make -j$(nproc) tests-scope_exit
     
