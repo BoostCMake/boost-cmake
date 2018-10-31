@@ -3,6 +3,11 @@ dist: trusty
 language: cpp
 script: cmake
 
+stages:
+  - compile
+  - test
+  - deploy
+
 os:
   - linux
   - osx
@@ -79,12 +84,21 @@ before_script:
     - cmake --version
     - git clone --recurse-submodules https://github.com/boostorg/boost.git -b boost-1.60.0
 
-# Build steps
-script:
-    - mkdir build
-    - cd build
-    - cmake .. -DBUILD_WITH_SOURCES_DIR=${TRAVIS_BUILD_DIR}/boost && make -j$(nproc) check-$TEST_LIB1 && make -j$(nproc) tests-$TEST_LIB1 && 
-      make -j$(nproc) check-$TEST_LIB2 && make -j$(nproc) tests-$TEST_LIB2 && 
-      make -j$(nproc) check-$TEST_LIB3 && make -j$(nproc) tests-$TEST_LIB3 
+jobs:
+  include:
+    - stage: test
+      script:
+         - mkdir build
+	 - cd build
+	 - cmake .. -DBUILD_WITH_SOURCES_DIR=${TRAVIS_BUILD_DIR}/boost
+
+    - stage: test
+	script:
+	    - make -j$(nproc) tests-$TEST_LIB1 && 
+	      make -j$(nproc) tests-$TEST_LIB2 && 
+	      make -j$(nproc) tests-$TEST_LIB3 
+
+    - stage: deploy
+      script: - make -j$(nproc) all
 
     
