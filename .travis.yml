@@ -12,119 +12,120 @@ compiler:
   - clang
 
 env:
-- TEST_LIB=accumulators
-- TEST_LIB=algorithm
-- TEST_LIB=align
-- TEST_LIB=any
-- TEST_LIB=array
-- TEST_LIB=asio
-- TEST_LIB=assert
-- TEST_LIB=assign
-- TEST_LIB=atomic
-- TEST_LIB=bimap
-- TEST_LIB=bind
-- TEST_LIB=chrono
-- TEST_LIB=circular_buffer
-- TEST_LIB=compatibility
-- TEST_LIB=concept_check
-- TEST_LIB=config
-- TEST_LIB=container
-- TEST_LIB=context
-- TEST_LIB=conversion
-- TEST_LIB=convert
-- TEST_LIB=core
-- TEST_LIB=coroutine
-- TEST_LIB=coroutine2
-- TEST_LIB=crc
-- TEST_LIB=date_time
-- TEST_LIB=detail
-- TEST_LIB=disjoint_sets
-- TEST_LIB=dynamic_bitset
-- TEST_LIB=endian
-- TEST_LIB=exception
-- TEST_LIB=filesystem
-- TEST_LIB=flyweight
-- TEST_LIB=foreach
-- TEST_LIB=format
-- TEST_LIB=function
-- TEST_LIB=function_types
-- TEST_LIB=functional
-- TEST_LIB=fusion
-- TEST_LIB=geometry
-- TEST_LIB=gil
-- TEST_LIB=graph
-- TEST_LIB=heap
-- TEST_LIB=icl
-- TEST_LIB=integer
-- TEST_LIB=interprocess
-- TEST_LIB=intrusive
-- TEST_LIB=io
-- TEST_LIB=iostreams
-- TEST_LIB=iterator
-- TEST_LIB=lambda
-- TEST_LIB=lexical_cast
-- TEST_LIB=local_function
-- TEST_LIB=locale
-- TEST_LIB=lockfree
-- TEST_LIB=log
-- TEST_LIB=logic
-- TEST_LIB=math
-- TEST_LIB=move
-- TEST_LIB=mpi
-- TEST_LIB=mpl
-- TEST_LIB=msm
-- TEST_LIB=multi_array
-- TEST_LIB=multi_index
-- TEST_LIB=multiprecision
-- TEST_LIB=numeric
-- TEST_LIB=optional
-- TEST_LIB=parameter
-- TEST_LIB=phoenix
-- TEST_LIB=polygon
-- TEST_LIB=pool
-- TEST_LIB=predef
-- TEST_LIB=preprocessor
-- TEST_LIB=program_options
-- TEST_LIB=property_map
-- TEST_LIB=property_tree
-- TEST_LIB=proto
-- TEST_LIB=ptr_container
-- TEST_LIB=python
-- TEST_LIB=random
-- TEST_LIB=range
-- TEST_LIB=ratio
-- TEST_LIB=rational
-- TEST_LIB=regex
-- TEST_LIB=scope_exit
-- TEST_LIB=serialization
-- TEST_LIB=signals
-- TEST_LIB=signals2
-- TEST_LIB=smart_ptr
-- TEST_LIB=sort
-- TEST_LIB=spirit
-- TEST_LIB=statechart
-- TEST_LIB=static_assert
-- TEST_LIB=system
-- TEST_LIB=test
-- TEST_LIB=thread
-- TEST_LIB=throw_exception
-- TEST_LIB=timer
-- TEST_LIB=tokenizer
-- TEST_LIB=tr1
-- TEST_LIB=tti
-- TEST_LIB=tuple
-- TEST_LIB=type_erasure
-- TEST_LIB=type_index
-- TEST_LIB=type_traits
-- TEST_LIB=typeof
-- TEST_LIB=units
-- TEST_LIB=unordered
-- TEST_LIB=utility
-- TEST_LIB=uuid
-- TEST_LIB=variant
-- TEST_LIB=wave
-- TEST_LIB=winapi
-- TEST_LIB=xpressive
+  - TEST_LIB1=accumulators
+  TEST_LIB2=algorithm
+  TEST_LIB3=align
+  - TEST_LIB1=any
+  TEST_LIB2=array
+  TEST_LIB3=asio
+  - TEST_LIB1=assert
+  TEST_LIB2=assign
+  TEST_LIB3=atomic
+  -  TEST_LIB1=bimap
+  TEST_LIB2=bind
+  TEST_LIB3=chrono
+  - TEST_LIB1=circular_buffer
+  TEST_LIB2=compatibility
+  TEST_LIB3=concept_check
+  - TEST_LIB1=config
+  TEST_LIB2=container
+  TEST_LIB3=context
+  - TEST_LIB1=conversion
+  TEST_LIB2=convert
+  TEST_LIB3=core
+  - TEST_LIB1=coroutine
+  TEST_LIB2=coroutine2
+  TEST_LIB3=crc
+  - TEST_LIB1=date_time
+  TEST_LIB2=detail
+  TEST_LIB3=disjoint_sets
+  - TEST_LIB1=dynamic_bitset
+  TEST_LIB2=endian
+  TEST_LIB3=exception
+  - TEST_LIB1=filesystem
+  TEST_LIB2=flyweight
+  TEST_LIB3=foreach
+  - TEST_LIB1=format
+  TEST_LIB2=function
+  TEST_LIB3=function_types
+  - TEST_LIB1=functional
+  TEST_LIB2=fusion
+  TEST_LIB3=geometry
+  - TEST_LIB1=gil
+  TEST_LIB2=graph
+  TEST_LIB3=heap
+  - TEST_LIB1=icl
+  TEST_LIB2=integer
+  TEST_LIB3=interprocess
+  - TEST_LIB1=intrusive
+  TEST_LIB2=io
+  TEST_LIB3=iostreams
+  - TEST_LIB1=iterator
+  TEST_LIB2=lambda
+  TEST_LIB3=lexical_cast
+  - TEST_LIB1=local_function
+  TEST_LIB2=locale
+  TEST_LIB3=lockfree
+  - TEST_LIB1=log
+  TEST_LIB2=logic
+  TEST_LIB3=math
+  - TEST_LIB1=move
+  TEST_LIB2=mpi
+  TEST_LIB3=mpl
+  - TEST_LIB1=msm
+  TEST_LIB2=multi_array
+  TEST_LIB3=multi_index
+  - TEST_LIB1=multiprecision
+  TEST_LIB2=numeric
+  TEST_LIB3=optional
+  - TEST_LIB1=parameter
+  TEST_LIB2=phoenix
+  TEST_LIB3=polygon
+  - TEST_LIB1=pool
+  TEST_LIB2=predef
+  TEST_LIB3=preprocessor
+  - TEST_LIB1=program_options
+  TEST_LIB2=property_map
+  TEST_LIB3=property_tree
+  - TEST_LIB1=proto
+  TEST_LIB2=ptr_container
+  TEST_LIB3=python
+  - TEST_LIB1=random
+  TEST_LIB2=range
+  TEST_LIB3=ratio
+  - TEST_LIB1=rational
+  TEST_LIB2=regex
+  TEST_LIB3=scope_exit
+  - TEST_LIB1=serialization
+  TEST_LIB2=signals
+  TEST_LIB3=signals2
+  - TEST_LIB1=smart_ptr
+  TEST_LIB2=sort
+  TEST_LIB3=spirit
+  - TEST_LIB1=statechart
+  TEST_LIB2=static_assert
+  TEST_LIB3=system
+  - TEST_LIB1=test
+  TEST_LIB2=thread
+  TEST_LIB3=throw_exception
+  - TEST_LIB1=timer
+  TEST_LIB2=tokenizer
+  TEST_LIB3=tr1
+  - TEST_LIB1=tti
+  TEST_LIB2=tuple
+  TEST_LIB3=type_erasure
+  - TEST_LIB1=type_index
+  TEST_LIB2=type_traits
+  TEST_LIB3=typeof
+  - TEST_LIB1=units
+  TEST_LIB2=unordered
+  TEST_LIB3=utility
+  - TEST_LIB1=uuid
+  TEST_LIB2=variant
+  TEST_LIB3=wave
+  - TEST_LIB1=winapi
+  TEST_LIB2=xpressive
+  TEST_LIB3=xpressive
 
 before_install:
   - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then 
@@ -135,8 +136,8 @@ before_install:
       sudo apt-get install -y python-dev python-pip python-tk python-lxml python-six &&
       sudo apt-get install -y libssl-dev && 
       sudo apt-get install -y libgmp-dev && 
-      sudo  apt-get install -y libntl-dev &&
-      sudo  apt-get install -y libgmp3-dev &&
+      sudo apt-get install -y libntl-dev &&
+      sudo apt-get install -y libgmp3-dev &&
       sudo apt-get install -y libicu-dev libc6-dev  &&
       sudo apt-get install -y bsdmainutils build-essential autotools-dev automake autoconf git &&
       wget https://cmake.org/files/v3.11/cmake-3.11.0-Linux-x86_64.sh &&
@@ -159,5 +160,8 @@ before_script:
 script:
     - mkdir build
     - cd build
-    - cmake .. -DBUILD_WITH_SOURCES_DIR=${TRAVIS_BUILD_DIR}/boost && make -j$(nproc) all && make -j$(nproc) tests-$TEST_LIB
+    - cmake .. -DBUILD_WITH_SOURCES_DIR=${TRAVIS_BUILD_DIR}/boost && make -j$(nproc) check-$TEST_LIB1 && make -j$(nproc) tests-$TEST_LIB1 && 
+      make -j$(nproc) check-$TEST_LIB2 && make -j$(nproc) tests-$TEST_LIB2 && 
+      make -j$(nproc) check-$TEST_LIB3 && make -j$(nproc) tests-$TEST_LIB3 
+
     
