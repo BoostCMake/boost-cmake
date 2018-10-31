@@ -11,6 +11,11 @@ compiler:
   - gcc
   - clang
 
+env:
+  - TEST_LIB=test
+  - TEST_LIB=graph
+  - TEST_LIB=scope_exit
+
 before_install:
   - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then 
        wget https://cmake.org/files/v3.10/cmake-3.10.0-Darwin-x86_64.tar.gz &&  tar xf cmake-3.10.0-Darwin-x86_64.tar.gz && export PATH="`pwd`/cmake-3.10.0-Darwin-x86_64/CMake.app/Contents/bin:$PATH"; 
@@ -34,11 +39,11 @@ before_script:
     - which $CC
     - which cmake
     - cmake --version
-    - git clone --recurse-submodules https://github.com/boostorg/boost.git -b boost-1.58.0
+    - git clone --recurse-submodules https://github.com/boostorg/boost.git -b boost-1.60.0
 
 # Build steps
 script:
     - mkdir build
     - cd build
-    - cmake .. -DBUILD_WITH_SOURCES_DIR=${TRAVIS_BUILD_DIR}/boost && make -j$(nproc) all && make -j$(nproc) tests-scope_exit
+    - cmake .. -DBUILD_WITH_SOURCES_DIR=${TRAVIS_BUILD_DIR}/boost && make -j$(nproc) all && make -j$(nproc) tests-$TEST_LIB
     
