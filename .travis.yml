@@ -86,14 +86,14 @@ before_script:
 jobs:
   include:
     - stage: compile_all
-      script: mkdir build && cd build && cmake .. -DBUILD_WITH_SOURCES_DIR=${TRAVIS_BUILD_DIR}/boost && make -j$(nproc) all
+      language: cpp
       os:
         - linux
         - osx
-
       compiler:
         - gcc
         - clang
+      script: mkdir build && cd build && cmake .. -DBUILD_WITH_SOURCES_DIR=${TRAVIS_BUILD_DIR}/boost && make -j$(nproc) all
 
     - stage: test
       script: mkdir build && cd build && cmake .. -DBUILD_WITH_SOURCES_DIR=${TRAVIS_BUILD_DIR}/boost && make -j$(nproc) tests-$TEST_LIB1 && make -j$(nproc) tests-$TEST_LIB2 && make -j$(nproc) tests-$TEST_LIB3 
