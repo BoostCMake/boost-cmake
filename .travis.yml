@@ -12,9 +12,119 @@ compiler:
   - clang
 
 env:
-  - TEST_LIB=test
-  - TEST_LIB=graph
-  - TEST_LIB=scope_exit
+- TEST_LIB=accumulators
+- TEST_LIB=algorithm
+- TEST_LIB=align
+- TEST_LIB=any
+- TEST_LIB=array
+- TEST_LIB=asio
+- TEST_LIB=assert
+- TEST_LIB=assign
+- TEST_LIB=atomic
+- TEST_LIB=bimap
+- TEST_LIB=bind
+- TEST_LIB=chrono
+- TEST_LIB=circular_buffer
+- TEST_LIB=compatibility
+- TEST_LIB=concept_check
+- TEST_LIB=config
+- TEST_LIB=container
+- TEST_LIB=context
+- TEST_LIB=conversion
+- TEST_LIB=convert
+- TEST_LIB=core
+- TEST_LIB=coroutine
+- TEST_LIB=coroutine2
+- TEST_LIB=crc
+- TEST_LIB=date_time
+- TEST_LIB=detail
+- TEST_LIB=disjoint_sets
+- TEST_LIB=dynamic_bitset
+- TEST_LIB=endian
+- TEST_LIB=exception
+- TEST_LIB=filesystem
+- TEST_LIB=flyweight
+- TEST_LIB=foreach
+- TEST_LIB=format
+- TEST_LIB=function
+- TEST_LIB=function_types
+- TEST_LIB=functional
+- TEST_LIB=fusion
+- TEST_LIB=geometry
+- TEST_LIB=gil
+- TEST_LIB=graph
+- TEST_LIB=heap
+- TEST_LIB=icl
+- TEST_LIB=integer
+- TEST_LIB=interprocess
+- TEST_LIB=intrusive
+- TEST_LIB=io
+- TEST_LIB=iostreams
+- TEST_LIB=iterator
+- TEST_LIB=lambda
+- TEST_LIB=lexical_cast
+- TEST_LIB=local_function
+- TEST_LIB=locale
+- TEST_LIB=lockfree
+- TEST_LIB=log
+- TEST_LIB=logic
+- TEST_LIB=math
+- TEST_LIB=move
+- TEST_LIB=mpi
+- TEST_LIB=mpl
+- TEST_LIB=msm
+- TEST_LIB=multi_array
+- TEST_LIB=multi_index
+- TEST_LIB=multiprecision
+- TEST_LIB=numeric
+- TEST_LIB=optional
+- TEST_LIB=parameter
+- TEST_LIB=phoenix
+- TEST_LIB=polygon
+- TEST_LIB=pool
+- TEST_LIB=predef
+- TEST_LIB=preprocessor
+- TEST_LIB=program_options
+- TEST_LIB=property_map
+- TEST_LIB=property_tree
+- TEST_LIB=proto
+- TEST_LIB=ptr_container
+- TEST_LIB=python
+- TEST_LIB=random
+- TEST_LIB=range
+- TEST_LIB=ratio
+- TEST_LIB=rational
+- TEST_LIB=regex
+- TEST_LIB=scope_exit
+- TEST_LIB=serialization
+- TEST_LIB=signals
+- TEST_LIB=signals2
+- TEST_LIB=smart_ptr
+- TEST_LIB=sort
+- TEST_LIB=spirit
+- TEST_LIB=statechart
+- TEST_LIB=static_assert
+- TEST_LIB=system
+- TEST_LIB=test
+- TEST_LIB=thread
+- TEST_LIB=throw_exception
+- TEST_LIB=timer
+- TEST_LIB=tokenizer
+- TEST_LIB=tr1
+- TEST_LIB=tti
+- TEST_LIB=tuple
+- TEST_LIB=type_erasure
+- TEST_LIB=type_index
+- TEST_LIB=type_traits
+- TEST_LIB=typeof
+- TEST_LIB=units
+- TEST_LIB=unordered
+- TEST_LIB=utility
+- TEST_LIB=uuid
+- TEST_LIB=variant
+- TEST_LIB=wave
+- TEST_LIB=winapi
+- TEST_LIB=xpressive
 
 before_install:
   - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then 
@@ -22,11 +132,15 @@ before_install:
     fi
   - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then 
       sudo apt-get install -y zlib1g-dev libbz2-dev mpich &&
-      sudo apt-get install -y python3-dev python3-pip python3-tk python3-lxml python3-six &&
-      sudo apt-get install -y libssl-dev &&
+      sudo apt-get install -y python-dev python-pip python-tk python-lxml python-six &&
+      sudo apt-get install -y libssl-dev && 
+      sudo apt-get install -y libgmp-dev && 
+      sudo  apt-get install -y libntl-dev &&
+      sudo  apt-get install -y libgmp3-dev &&
       sudo apt-get install -y libicu-dev libc6-dev  &&
       sudo apt-get install -y bsdmainutils build-essential autotools-dev automake autoconf git &&
       wget https://cmake.org/files/v3.11/cmake-3.11.0-Linux-x86_64.sh &&
+      sudo apt-get -qq install -y --no-install-recommends g++-6 &&
       sudo sh cmake-3.11.0-Linux-x86_64.sh --prefix=/usr/local --exclude-subdir &&
       export PATH="/usr/local/bin:$PATH";   
     fi
