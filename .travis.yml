@@ -63,8 +63,8 @@ before_install:
        wget https://cmake.org/files/v3.10/cmake-3.10.0-Darwin-x86_64.tar.gz &&  tar xf cmake-3.10.0-Darwin-x86_64.tar.gz && export PATH="`pwd`/cmake-3.10.0-Darwin-x86_64/CMake.app/Contents/bin:$PATH"; 
     fi
   - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then 
-      export CC=gcc-7 ;
-      export CXX=g++-7 ;
+      export CC=gcc-6;
+      export CXX=g++-6;
       sudo apt-get install -y zlib1g-dev libbz2-dev mpich &&
       sudo apt-get install -y python-dev python-pip python-tk python-lxml python-six &&
       sudo apt-get install -y libssl-dev && 
