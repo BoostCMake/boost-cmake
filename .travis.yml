@@ -10,6 +10,14 @@ compiler:
   - gcc
   - clang
 
+addons:
+  apt:
+    sources:
+      - ubuntu-toolchain-r-test
+    packages:
+      - gcc-6
+      - g++-6
+
 env:
   - TEST_LIB1=accumulators TEST_LIB2=algorithm TEST_LIB3=align
   - TEST_LIB1=any TEST_LIB2=array TEST_LIB3=asio
@@ -55,6 +63,8 @@ before_install:
        wget https://cmake.org/files/v3.10/cmake-3.10.0-Darwin-x86_64.tar.gz &&  tar xf cmake-3.10.0-Darwin-x86_64.tar.gz && export PATH="`pwd`/cmake-3.10.0-Darwin-x86_64/CMake.app/Contents/bin:$PATH"; 
     fi
   - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then 
+      export CC=gcc-7 ;
+      export CXX=g++-7 ;
       sudo apt-get install -y zlib1g-dev libbz2-dev mpich &&
       sudo apt-get install -y python-dev python-pip python-tk python-lxml python-six &&
       sudo apt-get install -y libssl-dev && 
@@ -70,11 +80,11 @@ before_install:
     
     
 before_script:
-    - $CXX --version
     - which $CXX
-    - $CC --version
     - which $CC
     - which cmake
+    - $CXX --version
+    - $CC --version
     - cmake --version
     - git clone --recurse-submodules https://github.com/boostorg/boost.git -b boost-1.60.0
 
